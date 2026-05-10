@@ -1,18 +1,14 @@
-# React + Vite
+# 사용 방법
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ctrl + ` : 터미널 창 열림
+ctrl + shift + ` : 터미널 창 새로 열림
 
-Currently, two official plugins are available:
+두 개의 터미널 창이 필요함
+터미널 창 1 : 개발 서버 실행
+  터미널에서 pnpm run dev => 개발 서버 실행됨
+  ctrl + 클릭하면 브라우저에서 홈페이지 열림
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+터미널 창 2 : 저장을 위한 창
+  git add . : 작업한 파일 추가
+  git commit -m "작업 내용" : 작업 내용 기록
+  git push : 원격 저장소에 저장

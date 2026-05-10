@@ -5,6 +5,7 @@ import './App.css';
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isShopOpen, setIsShopOpen] = useState(false);
+  const [currentView, setCurrentView] = useState('home');
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -67,36 +68,51 @@ function App() {
             </div>
           </div>
           <div className="header-right">
-            <button className="login-btn">LOGIN</button>
+            {currentView === 'home' ? (
+              <button className="login-btn" onClick={() => setCurrentView('login')}>LOGIN</button>
+            ) : (
+              <button className="login-btn back-btn" onClick={() => setCurrentView('home')}>BACK</button>
+            )}
           </div>
         </header>
 
-        <main className="main-content">
-          <div className="grid-layout">
-            <div className="row-1">
-              <div className="img-container">
-                <img src={testImg} alt="Product 1" />
-                <span className="img-label">Image 1</span>
+        {currentView === 'home' ? (
+          <main className="main-content">
+            <div className="grid-layout">
+              <div className="row-1">
+                <div className="img-container">
+                  <img src={testImg} alt="Product 1" />
+                  <span className="img-label">Image 1</span>
+                </div>
+                <div className="img-container">
+                  <img src={testImg} alt="Product 2" />
+                  <span className="img-label">Image 2</span>
+                </div>
               </div>
-              <div className="img-container">
-                <img src={testImg} alt="Product 2" />
-                <span className="img-label">Image 2</span>
+              <div className="row-2">
+                <div className="img-container">
+                  <img src={testImg} alt="Product 3" />
+                  <span className="img-label">Image 3</span>
+                </div>
+              </div>
+              <div className="row-3">
+                <div className="img-container">
+                  <img src={testImg} alt="Product 4" />
+                  <span className="img-label">Image 4</span>
+                </div>
               </div>
             </div>
-            <div className="row-2">
-              <div className="img-container">
-                <img src={testImg} alt="Product 3" />
-                <span className="img-label">Image 3</span>
-              </div>
+          </main>
+        ) : (
+          <main className="login-content">
+            <div className="login-box">
+              <button className="google-login-btn">
+                <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" className="google-icon" />
+                <span>Google 계정으로 로그인</span>
+              </button>
             </div>
-            <div className="row-3">
-              <div className="img-container">
-                <img src={testImg} alt="Product 4" />
-                <span className="img-label">Image 4</span>
-              </div>
-            </div>
-          </div>
-        </main>
+          </main>
+        )}
 
         <footer className="footer">
           <div className="footer-content">
