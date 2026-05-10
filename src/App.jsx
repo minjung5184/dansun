@@ -1,122 +1,112 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from 'react';
+import testImg from './assets/test.png';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isShopOpen, setIsShopOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleShop = () => {
+    setIsShopOpen(!isShopOpen);
+  };
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <div className="container">
+      {/* Sidebar Menu */}
+      <div className={`sidebar ${isMenuOpen ? 'open' : ''}`}>
+        <div className="sidebar-header">
+          <div className="header-left">
+            <button className="hamburger active" aria-label="Close Menu" onClick={toggleMenu}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <div className="logo-container">
+              <img src={testImg} alt="Logo" className="logo" />
+            </div>
+          </div>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
 
-      <div className="ticks"></div>
+        <nav className="sidebar-nav">
+          <div className="nav-item">
+            <button className="nav-btn">about</button>
+          </div>
+          <div className="nav-item">
+            <button className={`nav-btn ${isShopOpen ? 'active' : ''}`} onClick={toggleShop}>
+              shop
+            </button>
+            <div className={`sub-nav ${isShopOpen ? 'open' : ''}`}>
+              <button className="sub-nav-btn">cushion</button>
+              <button className="sub-nav-btn">curtain</button>
+              <button className="sub-nav-btn">textile deco</button>
+            </div>
+          </div>
+        </nav>
+      </div>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      {/* Main Content Area */}
+      <div className={`main-wrapper ${isMenuOpen ? 'shifted' : ''}`}>
+        <header className="header">
+          <div className="header-left" style={{ opacity: isMenuOpen ? 0 : 1, pointerEvents: isMenuOpen ? 'none' : 'auto' }}>
+            <button className="hamburger" aria-label="Open Menu" onClick={toggleMenu}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <div className="logo-container">
+              <img src={testImg} alt="Logo" className="logo" />
+              <div className="logo-text">
+                <p>ㅁㅁㅁㅁㅁㅁㅁㅁ ㅁㅁㅁㅁㅁㅁ</p>
+                <p>ㅁㅁㅁㅁㅁㅁㅁㅁㅁ ㅁㅁㅁㅁㅁ</p>
+                <p className="subtitle">이 템플릿에 대한 설명</p>
+              </div>
+            </div>
+          </div>
+          <div className="header-right">
+            <button className="login-btn">LOGIN</button>
+          </div>
+        </header>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+        <main className="main-content">
+          <div className="grid-layout">
+            <div className="row-1">
+              <div className="img-container">
+                <img src={testImg} alt="Product 1" />
+                <span className="img-label">Image 1</span>
+              </div>
+              <div className="img-container">
+                <img src={testImg} alt="Product 2" />
+                <span className="img-label">Image 2</span>
+              </div>
+            </div>
+            <div className="row-2">
+              <div className="img-container">
+                <img src={testImg} alt="Product 3" />
+                <span className="img-label">Image 3</span>
+              </div>
+            </div>
+            <div className="row-3">
+              <div className="img-container">
+                <img src={testImg} alt="Product 4" />
+                <span className="img-label">Image 4</span>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <footer className="footer">
+          <div className="footer-content">
+            <p>주식회사</p>
+            <p>사업자</p>
+          </div>
+        </footer>
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
