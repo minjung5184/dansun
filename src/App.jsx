@@ -26,7 +26,7 @@ function App() {
               <span></span>
               <span></span>
             </button>
-            <div className="logo-container">
+            <div className="logo-container" style={{ cursor: 'pointer' }} onClick={() => { setCurrentView('home'); setIsMenuOpen(false); }}>
               <img src={testImg} alt="Logo" className="logo" />
             </div>
           </div>
@@ -58,7 +58,7 @@ function App() {
               <span></span>
               <span></span>
             </button>
-            <div className="logo-container">
+            <div className="logo-container" style={{ cursor: 'pointer' }} onClick={() => { setCurrentView('home'); setIsMenuOpen(false); }}>
               <img src={testImg} alt="Logo" className="logo" />
               <div className="logo-text">
                 <p>ㅁㅁㅁㅁㅁㅁㅁㅁ ㅁㅁㅁㅁㅁㅁ</p>
