@@ -41,7 +41,7 @@ function App() {
               shop
             </button>
             <div className={`sub-nav ${isShopOpen ? 'open' : ''}`}>
-              <button className="sub-nav-btn">cushion</button>
+              <button className="sub-nav-btn" onClick={() => { setCurrentView('cushion'); setIsMenuOpen(false); }}>cushion</button>
               <button className="sub-nav-btn">curtain</button>
               <button className="sub-nav-btn">textile deco</button>
             </div>
@@ -68,15 +68,15 @@ function App() {
             </div>
           </div>
           <div className="header-right">
-            {currentView === 'home' ? (
-              <button className="login-btn" onClick={() => setCurrentView('login')}>LOGIN</button>
-            ) : (
+            {currentView === 'login' ? (
               <button className="login-btn back-btn" onClick={() => setCurrentView('home')}>BACK</button>
+            ) : (
+              <button className="login-btn" onClick={() => setCurrentView('login')}>LOGIN</button>
             )}
           </div>
         </header>
 
-        {currentView === 'home' ? (
+        {currentView === 'home' && (
           <main className="main-content">
             <div className="grid-layout">
               <div className="row-1">
@@ -103,13 +103,31 @@ function App() {
               </div>
             </div>
           </main>
-        ) : (
+        )}
+        
+        {currentView === 'login' && (
           <main className="login-content">
             <div className="login-box">
               <button className="google-login-btn">
                 <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" className="google-icon" />
                 <span>Google 계정으로 로그인</span>
               </button>
+            </div>
+          </main>
+        )}
+
+        {currentView === 'cushion' && (
+          <main className="cushion-content">
+            <div className="cushion-grid">
+              {[1, 2, 3, 1, 2, 3, 1, 2, 3].map((num, idx) => (
+                <div className="cushion-item" key={idx}>
+                  <div className="cushion-img-circle">
+                    <span className="cushion-img-text">item</span>
+                  </div>
+                  <p className="cushion-item-name">item {num}</p>
+                  <p className="cushion-item-price">price</p>
+                </div>
+              ))}
             </div>
           </main>
         )}

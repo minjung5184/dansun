@@ -301,3 +301,56 @@
   font-size: 14px;
   color: #333;
 }
+
+/* Cushion View Styles */
+.cushion-content {
+  flex: 1;
+  padding: 80px 40px; /* high margin layout */
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cushion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 60px;
+  row-gap: 100px;
+  justify-items: center;
+}
+
+.cushion-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cushion-img-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #d8d8d8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.cushion-img-text {
+  color: #ff0000;
+  font-size: 14px;
+}
+
+.cushion-item-name {
+  margin: 0 0 8px 0;
+  color: #888;
+  font-size: 14px;
+}
+
+.cushion-item-price {
+  margin: 0;
+  color: #aaa;
+  font-size: 12px;
+}
